@@ -96,7 +96,7 @@ class AnimPolicyStationary:
         rot = obj.rotation_euler
         time = 1  # Duration can be arbitrary since there's no movement
         return Vector(pos), Vector(rot), time, "LINEAR"
-    
+
 @gin.configurable
 class AnimPolicyBrownian:
 
