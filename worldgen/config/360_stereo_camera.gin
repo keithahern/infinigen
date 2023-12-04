@@ -1,0 +1,7 @@
+execute_tasks.generate_resolution = (512, 512)
+get_sensor_coords.H = 512
+get_sensor_coords.W = 512
+animate_cameras.follow_poi_chance=0.0
+#animate_cameras.policy_registry = @cam/AnimPolicyRandomForwardWalk
+animate_cameras.policy_registry = @cam/AnimPolicyStationary
+
