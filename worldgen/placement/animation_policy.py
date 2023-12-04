@@ -85,6 +85,19 @@ def walk_same_altitude(
     return pos
 
 @gin.configurable
+class AnimPolicyStationary:
+
+    def __init__(self):
+        pass
+
+    def __call__(self, obj, frame_curr, bvh, retry_pct):
+        # Simply return the current position and rotation without any changes
+        pos = obj.location
+        rot = obj.rotation_euler
+        time = 1  # Duration can be arbitrary since there's no movement
+        return Vector(pos), Vector(rot), time, "LINEAR"
+    
+@gin.configurable
 class AnimPolicyBrownian:
 
     def __init__(self, speed=3, pos_var=15.0):
