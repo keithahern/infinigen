@@ -38,6 +38,16 @@ TRANSPARENT_SHADERS = {Nodes.TranslucentBSDF, Nodes.TransparentBSDF}
 
 logger = logging.getLogger(__name__)
 
+def configure_360_camera(camera):
+    camera.data.type = 'PANO'  # Set camera type to panoramic
+    camera.data.cycles.panorama_type = 'EQUIRECTANGULAR'  # Set panoramic type to equirectangular
+
+    # Optional settings depending on your needs
+    camera.data.angle_x = np.radians(360)  # Horizontal FOV
+    camera.data.angle_y = np.radians(180)  # Vertical FOV
+
+    cam_util.adjust_camera_sensor(camera)
+
 def remove_translucency():
     # The asserts were added since these edge cases haven't appeared yet -Lahav
     for material in bpy.data.materials:
@@ -336,6 +346,8 @@ def render_image(
 
     with Timer(f"get_camera"):
         camera = cam_util.get_camera(camera_rig_id, subcam_id)
+        configure_360_camera(camera)  # Call the function to configure the camera for 360 rendering
+
         if use_dof == 'IF_TARGET_SET':
             use_dof = camera.data.dof.focus_object is not None
         if use_dof is not None:
