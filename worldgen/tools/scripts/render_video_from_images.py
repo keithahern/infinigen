@@ -10,9 +10,12 @@ import re  # Importing the re module
 
 def find_images(root_dir, camera):
     pattern = os.path.join(root_dir, '**', 'Image', camera, '*.png')
+    #pattern = os.path.join(root_dir, '**', '*.png')
+    print("looking in", pattern)
     files = glob.glob(pattern, recursive=True)
     # Sort based on the frame number in the filename
     sorted_files = sorted(files, key=lambda x: int(re.search(r"(\d+)_\d\.png$", x).group(1)))
+    print("found images" , sorted_files)
     return sorted_files
 
 def create_sbs_video(input_directory):

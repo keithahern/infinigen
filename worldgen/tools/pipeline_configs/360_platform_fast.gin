@@ -1,0 +1,2 @@
+render_image.render_resolution_override=[512,512]
+iterate_scene_tasks.frame_range=[1,2]
