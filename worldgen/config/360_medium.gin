@@ -1,0 +1,8 @@
+execute_tasks.generate_resolution = (960,960)
+get_sensor_coords.H = 960
+get_sensor_coords.W = 960
+animate_cameras.follow_poi_chance=0.0
+# new policy to stop camera animation
+animate_cameras.policy_registry = @cam/AnimPolicyStationary
+full/render_image.passes_to_save = []
+flat/render_image.passes_to_save = []
