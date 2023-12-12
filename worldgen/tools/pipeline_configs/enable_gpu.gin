@@ -1,0 +1,7 @@
+queue_fine_terrain.gpus = 1
+queue_combined.gpus = 1
+queue_fine_terrain.exclude_gpus = ['k80']
+queue_combined.exclude_gpus = ['k80']
+manage_datagen_jobs.num_concurrent=1
+LocalScheduleHandler.use_gpu=True
+LocalScheduleHandler.jobs_per_gpu=1
