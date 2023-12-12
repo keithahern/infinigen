@@ -1,2 +1,3 @@
 render_image.render_resolution_override=[3840,3840]
 iterate_scene_tasks.frame_range=[1,100]
+LocalScheduleHandler.use_gpu=True
